@@ -60,7 +60,7 @@ public class PrincipalController {
 	@DeleteMapping("/deleteUser")
 	public String deleteUser(@RequestParam String id) {
 		userRepository.deleteById(Long.parseLong(id));
-		return "User deleted satisfactory";
+		return "User with id " + id + " deleted satisfactory";
 	}
 
 }

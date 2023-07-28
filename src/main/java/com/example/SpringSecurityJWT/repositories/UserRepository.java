@@ -13,6 +13,6 @@ public interface UserRepository extends CrudRepository<UserEntity, Long> {
 	
 	Optional<UserEntity> findByUserName(String userName);
 	
-	@Query("select u from UserEntity u where u.username = ?1")
+	@Query("select u from UserEntity u where u.userName = ?1")
 	Optional<UserEntity> getName(String userName);
 }
