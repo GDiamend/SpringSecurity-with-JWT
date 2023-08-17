@@ -50,7 +50,7 @@ public class JwtUtils {
 			.getBody();
 			return true;
 		} catch(Exception e) {
-			log.error("Token invalido, error".concat(e.getMessage()));
+			log.error("Invalid token, error".concat(e.getMessage()));
 			 return false;
 		}
 	}
@@ -64,7 +64,6 @@ public class JwtUtils {
 	public <T> T getClaim(String token, Function<Claims, T> claimsTFunction) {
 		Claims claims = this.extractAllClaims(token);
 		return claimsTFunction.apply(claims);
-		
 	}
 	
 	//Get token's claims
