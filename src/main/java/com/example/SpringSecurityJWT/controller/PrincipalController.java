@@ -50,7 +50,7 @@ public class PrincipalController {
 				.collect(Collectors.toSet());
 		
 		UserEntity userEntity = UserEntity.builder()
-				.userName(createUserDTO.getUserName())
+				.username(createUserDTO.getUsername())
 				.password(this.passwordEncoder.encode(createUserDTO.getPassword()))
 				.email(createUserDTO.getEmail())
 				.roles(roles)

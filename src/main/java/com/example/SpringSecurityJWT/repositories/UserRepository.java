@@ -11,8 +11,8 @@ import com.example.SpringSecurityJWT.models.UserEntity;
 @Repository
 public interface UserRepository extends CrudRepository<UserEntity, Long> {
 	
-	Optional<UserEntity> findByUserName(String userName);
+	Optional<UserEntity> findByUsername(String username);
 	
-	@Query("select u from UserEntity u where u.userName = ?1")
-	Optional<UserEntity> getName(String userName);
+	@Query("select u from UserEntity u where u.username = ?1")
+	Optional<UserEntity> getName(String username);
 }
