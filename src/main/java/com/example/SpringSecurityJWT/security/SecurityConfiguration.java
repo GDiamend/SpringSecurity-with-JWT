@@ -33,6 +33,7 @@ public class SecurityConfiguration {
 				.build();
 	}
 	
+	/*
 	@Bean
 	UserDetailsService userDetailsService() {
 		InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
@@ -43,6 +44,7 @@ public class SecurityConfiguration {
 		
 		return manager;
 	}
+	*/
 	
 	@Bean
 	PasswordEncoder passwordEncoder() {
