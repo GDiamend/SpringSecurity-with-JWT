@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -26,8 +25,11 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
-	@Autowired
-	private JwtUtils jwUtils;
+	private JwtUtils jwtUtils;
+	
+	public JwtAuthenticationFilter(JwtUtils jwtUtils) {
+		this.jwtUtils = jwtUtils;
+	}
 	
 	@Override
 	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
@@ -61,7 +63,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		// TODO Auto-generated method stub
 		
 		User user = (User)authResult.getPrincipal();
-		String token = this.jwUtils.generateAccessToken(user.getUsername());
+		String token = this.jwtUtils.generateAccessToken(user.getUsername());
 		
 		response.addHeader("Authorization", token);
 		

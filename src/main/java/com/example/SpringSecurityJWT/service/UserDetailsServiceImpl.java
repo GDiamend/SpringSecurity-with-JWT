@@ -16,7 +16,7 @@ import com.example.SpringSecurityJWT.models.UserEntity;
 import com.example.SpringSecurityJWT.repositories.UserRepository;
 
 @Service
-public class UserDetailsServiceImp implements UserDetailsService{
+public class UserDetailsServiceImpl implements UserDetailsService{
 
 	@Autowired
 	private UserRepository userRepository;
