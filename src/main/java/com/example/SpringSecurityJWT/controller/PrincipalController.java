@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,10 +38,11 @@ public class PrincipalController {
 	
 	@GetMapping("/helloSecured")
 	public String helloSecured() {
-		return "Hello world nsecured";
+		return "Hello world secured";
 	}
 	
 	@PostMapping("/createUser")
+	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<?> createUser(@Valid @RequestBody CreateUserDTO createUserDTO){
 		
 		Set<RoleEntity> roles = createUserDTO.getRoles().stream()
